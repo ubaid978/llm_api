@@ -13,6 +13,6 @@ def invoke(res: response):
     llm=ChatOpenAI(model_name="mistralai/mistral-7b-instruct", temperature=0.7)
     answer=llm.invoke(res.user).content
     return {"user":res.user,'ai':answer}
-if __name__=='__main__':
-    uvicorn.run(app)
+
+uvicorn.run(app)
 
