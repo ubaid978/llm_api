@@ -3,6 +3,7 @@ from pydantic import BaseModel,Field
 from langchain.chat_models import ChatOpenAI
 import os
 from dotenv import load_dotenv,find_dotenv
+from mangum import Mangum
 import uvicorn
 load_dotenv(find_dotenv())
 app=FastAPI(tittle='LLM APi')
@@ -14,5 +15,4 @@ def invoke(res: response):
     answer=llm.invoke(res.user).content
     return {"user":res.user,'ai':answer}
 
-uvicorn.run(app)
-
+handler = Mangum(app)
