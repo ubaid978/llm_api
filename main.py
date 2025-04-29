@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from pydantic import BaseModel,Field
-from langchain.chat_models import ChatOpenAI
+from langchain_community.chat_models import ChatOpenAI
 import os
 from dotenv import load_dotenv,find_dotenv
 from mangum import Mangum
